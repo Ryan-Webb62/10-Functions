@@ -1,7 +1,27 @@
 'use strict';
 
-//---------------------Accepting Call Back Functions ----------------
+//---------------------Functions Returning Functions ---------------
 
+// const greet = function (greeting) {
+//   return function (name) {
+//     console.log(`${greeting} ${name}`);
+//   };
+// };
+
+const greet = (greeting) => {
+  return (name) => {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+
+greeterHey('Jonas');
+greeterHey('Stephen');
+
+greet('Hello')('Jonas');
+//---------------------Accepting Call Back Functions ----------------
+/* 
 const oneWord = function (str) {
   return str.replaceAll(' ', '').toLowerCase();
 };
@@ -28,7 +48,7 @@ const highFive = function () {
 document.body.addEventListener('click', highFive);
 
 ['Jonas', 'Martha', 'Adam'].forEach(highFive);
-
+ */
 // --------------------Passing Arguments: Value vs. Reference------------------
 /* 
 const flight = 'LH234';
