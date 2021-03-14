@@ -1,7 +1,51 @@
 'use strict';
 
-//---------------------The bind Method -----------------------------
+//---------------------Coding Challenge #1 -------------------------
+const poll = {
+  question: 'What is your favourite programming language?',
+  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+  // This generates [0, 0, 0, 0]. More in the next section!
+  answers: new Array(4).fill(0),
+  registerNewAnser() {
+    const answer = Number(
+      prompt(
+        `${this.question}\n\t${this.options.join('\n\t')}(Write option number)`
+      )
+    );
 
+    if (
+      typeof answer === 'number' &&
+      answer >= 0 &&
+      answer <= this.answers.length
+    ) {
+      this.answers[answer]++;
+      this.displayResults();
+      this.displayResults('string');
+    } else {
+      console.log(
+        `You did not provide an answer between 0 and 3, please try again!`
+      );
+    }
+  },
+  displayResults(type = 'array') {
+    if (type === 'array') {
+      console.log(this.answers);
+    } else if (type === 'string') {
+      console.log(`Poll results are ${this.answers.join(', ')}`);
+    }
+  },
+};
+
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnser.bind(poll));
+
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+// [5,2,3]
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
+// [1,5,3,9,6,1]
+//---------------------The bind Method -----------------------------
+/* 
 const lufthansa = {
   airline: 'Lufthansa',
   iataCode: 'LH',
@@ -71,8 +115,10 @@ const addTaxRate = (rate) => {
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 console.log(addVAT2(23));
+ */
 
 //---------------------The call and apply methods ------------------
+
 /* 
 const lufthansa = {
   airline: 'Lufthansa',
