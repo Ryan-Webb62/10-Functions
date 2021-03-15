@@ -1,6 +1,19 @@
 'use strict';
+//---------------------Immediately Invoked Function Expressions ------
+
+const runOnce = function () {
+  console.log('This function will run once!');
+};
+runOnce();
+
+(function () {
+  console.log('This function will really only run once.');
+})();
+
+(() => console.log('This will ALSO never run again!'))();
 
 //---------------------Coding Challenge #1 -------------------------
+/* 
 const poll = {
   question: 'What is your favourite programming language?',
   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
@@ -44,6 +57,7 @@ poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
 // [5,2,3]
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
 // [1,5,3,9,6,1]
+ */
 //---------------------The bind Method -----------------------------
 /* 
 const lufthansa = {
