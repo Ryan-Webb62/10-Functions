@@ -1,7 +1,18 @@
 'use strict';
 
-//--------------------Closures pt II --------------------------------
+//--------------------Challenge 2-----------------------------------
 
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'blue';
+  });
+})();
+
+//--------------------Closures pt II --------------------------------
+/* 
 // Example 2
 
 const boardPassengers = function (n, wait) {
@@ -42,7 +53,7 @@ f();
 h();
 f();
 // console.dir(f);
-
+ */
 //---------------------Closures--------------------------------------
 /* 
 const secureBooking = function () {
