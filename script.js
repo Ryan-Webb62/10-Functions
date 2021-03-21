@@ -1,6 +1,23 @@
 'use strict';
-//---------------------Immediately Invoked Function Expressions ------
+//---------------------Closures--------------------------------------
 
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+//---------------------Immediately Invoked Function Expressions ------
+/* 
 const runOnce = function () {
   console.log('This function will run once!');
 };
@@ -11,7 +28,7 @@ runOnce();
 })();
 
 (() => console.log('This will ALSO never run again!'))();
-
+ */
 //---------------------Coding Challenge #1 -------------------------
 /* 
 const poll = {
